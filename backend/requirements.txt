@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+motor
+pydantic
+python-dotenv
+pydantic-settings>=2.0.0
+pandas
+openpyxl

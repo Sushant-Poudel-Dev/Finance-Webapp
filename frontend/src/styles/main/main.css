@@ -1,0 +1,2006 @@
+@charset "UTF-8";
+.layout {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--background-color);
+}
+.layout .content {
+  flex: 1;
+  margin-top: 1rem;
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 35rem;
+  width: 14rem;
+  margin: 1rem;
+  padding: 2rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  position: sticky;
+  top: 1rem;
+  background-color: var(--background-color-shade);
+}
+.sidebar .sidebarHeader {
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+  animation-delay: 0.2s;
+}
+.sidebar .sidebarHeader h3 {
+  margin-bottom: var(--spacing-m);
+}
+.sidebar .sidebarLinks ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+.sidebar .sidebarLinks ul li {
+  border: 1px solid var(--border-color);
+  width: 14rem;
+  padding: 1rem 0rem;
+  text-align: center;
+  border-radius: var(--button-border-radius);
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+.sidebar .sidebarLinks ul li:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.sidebar .sidebarLinks ul li:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.sidebar .sidebarLinks ul li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.sidebar .sidebarLinks ul li:nth-child(4) {
+  animation-delay: 0.7s;
+}
+.sidebar .sidebarLinks ul li:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.sidebar .sidebarLinks ul li:hover, .sidebar .sidebarLinks ul li.active {
+  background: var(--primary-color);
+  color: var(--background-color);
+  transition: var(--button-transition);
+}
+
+@keyframes slideFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.dashboard h1 {
+  text-align: center;
+}
+.dashboard .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
+}
+.dashboard .dashboard-header .dashboard-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.dashboard .dashboard-header .dashboard-controls .time-period-selector .time-filter {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  min-width: 130px;
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+.dashboard .dashboard-header .dashboard-controls .time-period-selector .time-filter:hover, .dashboard .dashboard-header .dashboard-controls .time-period-selector .time-filter:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.1);
+}
+.dashboard .dashboard-header .dashboard-controls .time-period-selector .time-filter option {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 8px;
+  font-weight: 400;
+}
+.dashboard .dashboard-header .dashboard-controls .export-btn {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dashboard .dashboard-header .dashboard-controls .export-btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+.dashboard .dashboard-header .dashboard-controls .export-btn:active {
+  transform: scale(0.98);
+}
+.dashboard .dashboard-header .calendar-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--background-color-shade);
+  padding: 0.4rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+.dashboard .dashboard-header .calendar-switcher svg {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-left: 0.2rem;
+}
+.dashboard .dashboard-header .calendar-switcher .switcher-options {
+  display: flex;
+  background: var(--background-color);
+  padding: 0.2rem;
+  border-radius: var(--border-radius);
+  gap: 0.2rem;
+}
+.dashboard .dashboard-header .calendar-switcher .switcher-options button {
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: calc(var(--border-radius) - 2px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dashboard .dashboard-header .calendar-switcher .switcher-options button:hover:not(.active) {
+  background: rgba(var(--secondary-color-rgb), 0.1);
+}
+.dashboard .dashboard-header .calendar-switcher .switcher-options button.active {
+  background: var(--secondary-color);
+  color: var(--background-color);
+}
+.dashboard .dashboard-header .calendar-switcher:hover {
+  border-color: var(--secondary-color);
+}
+.dashboard .dashboardMain .totalResult {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--background-color-shade);
+}
+.dashboard .dashboardMain .totalResult div {
+  animation: fadeIn 0.5s ease-out forwards;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--border-color);
+  text-align: center;
+  padding: 1rem 4rem;
+  font-size: 3rem;
+  width: 10rem;
+}
+.dashboard .dashboardMain .totalResult div h1 {
+  font-size: 3rem;
+}
+.dashboard .dashboardMain .secondaryContainer {
+  display: flex;
+  margin: 1rem 2rem;
+  gap: 1rem;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList {
+  border: 2px solid var(--border-color);
+  width: 60%;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  max-height: 20rem;
+  overflow: hidden;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList .incomeListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList .incomeListHeader div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList .incomeListHeader div h3 {
+  text-align: center;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table th {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--background-color-shade);
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table td {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+  font-family: "Roboto", sans-serif;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table td:first-child {
+  font-family: monospace;
+  letter-spacing: -0.5px;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table td.date-cell {
+  position: relative;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table td.date-cell .date-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table td.date-cell .date-container .date {
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table td.date-cell .date-container .time-popup {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  top: -30px;
+  background: var(--background-color);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table td.date-cell .date-container .time-popup::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: var(--border-color) transparent transparent;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table td.date-cell .date-container .time-popup span {
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table td.date-cell .date-container:hover .time-popup {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr {
+  animation: slideFromBottom 0.5s ease-out forwards;
+  opacity: 0;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(9) {
+  animation-delay: 0.9s;
+}
+.dashboard .dashboardMain .secondaryContainer .incomeList table tr:nth-child(10) {
+  animation-delay: 1s;
+}
+.dashboard .dashboardMain .secondaryContainer .pieChartContainer {
+  border: 2px solid var(--border-color);
+  width: 45%;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  max-height: 20rem;
+}
+.dashboard .dashboardMain .secondaryContainer .pieChartContainer .pieChartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashboard .dashboardMain .secondaryContainer .pieChartContainer .pieChartHeader h3 {
+  text-align: center;
+}
+.dashboard .dashboardMain .secondaryContainer .pieChartContainer .pieChartContainerBody {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-color-shade);
+}
+.dashboard .dashboardMain .secondaryContainer .pieChartContainer .pieChartContainerBody::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.dashboard .dashboardMain .secondaryContainer .pieChartContainer .pieChartContainerBody::-webkit-scrollbar-track {
+  background: var(--background-color-shade);
+  border-radius: 4px;
+}
+.dashboard .dashboardMain .secondaryContainer .pieChartContainer .pieChartContainerBody::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  border: 2px solid var(--background-color-shade);
+}
+.dashboard .dashboardMain .secondaryContainer .pieChartContainer .pieChartContainerBody::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color-dark);
+}
+.dashboard .dashboardMain .secondaryContainer .pieChartContainer .pieChartContainerBody canvas {
+  height: 18rem !important;
+  margin: 0 auto;
+}
+.dashboard .dashboardMain .lineChartContainer {
+  margin: 1rem 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--border-color);
+  width: auto;
+}
+.dashboard .dashboardMain .lineChartContainer .lineChartContainerBody canvas {
+  width: 100% !important;
+  height: 300px !important;
+}
+
+.expensePage h1 {
+  text-align: center;
+}
+.expensePage .lineChartContainer {
+  margin: 1rem 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--border-color);
+  width: auto;
+}
+.expensePage .lineChartContainer .lineChartContainerBody canvas {
+  width: 100% !important;
+  height: 300px !important;
+}
+.expensePage .totalResult {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.expensePage .totalResult div {
+  animation: fadeIn 0.5s ease-out forwards;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--border-color);
+  text-align: center;
+  padding: 1rem 4rem;
+  font-size: 3rem;
+  width: 10rem;
+}
+.expensePage .totalResult div h1 {
+  font-size: 3rem;
+}
+.expensePage .incomeList {
+  margin: 2rem;
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+.expensePage .incomeList .incomeListHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.expensePage .incomeList .incomeListHeader div {
+  text-align: left;
+}
+.expensePage .incomeList .incomeListHeader .searchInput {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  outline: none;
+  background-color: var(--background-color-shade);
+  color: var(--text-color);
+}
+.expensePage .incomeList .incomeListHeader .searchInput:focus {
+  border-color: var(--primary-color);
+}
+.expensePage .incomeList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.expensePage .incomeList table th {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--background-color-shade);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.expensePage .incomeList table th:hover {
+  color: var(--primary-color-dark);
+}
+.expensePage .incomeList table td {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+  font-family: "Roboto", sans-serif;
+}
+.expensePage .incomeList table td:first-child {
+  font-family: monospace;
+  letter-spacing: -0.5px;
+}
+.expensePage .incomeList table td.date-cell {
+  position: relative;
+}
+.expensePage .incomeList table td.date-cell .date-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.expensePage .incomeList table td.date-cell .date-container .date {
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+}
+.expensePage .incomeList table td.date-cell .date-container .time-popup {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  top: -30px;
+  background: var(--background-color);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+.expensePage .incomeList table td.date-cell .date-container .time-popup::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: var(--border-color) transparent transparent;
+}
+.expensePage .incomeList table td.date-cell .date-container .time-popup span {
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
+}
+.expensePage .incomeList table td.date-cell .date-container:hover .time-popup {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.expensePage .incomeList table tr {
+  animation: slideFromBottom 0.5s ease-out forwards;
+  opacity: 0;
+}
+.expensePage .incomeList table tr:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.expensePage .incomeList table tr:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.expensePage .incomeList table tr:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.expensePage .incomeList table tr:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.expensePage .incomeList table tr:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.expensePage .incomeList .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.expensePage .incomeList .pagination button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: white;
+}
+.expensePage .incomeList .pagination button:hover {
+  background-color: var(--background-color-shade);
+}
+.expensePage .incomeList .pagination button.active {
+  background-color: var(--primary-color);
+  color: black;
+  border-color: var(--primary-color);
+}
+
+.planner .planner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
+}
+.planner h1 {
+  text-align: center;
+}
+.planner .totalResult {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.planner .totalResult div {
+  animation: fadeIn 0.5s ease-out forwards;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--border-color);
+  text-align: center;
+  padding: 1rem 4rem;
+  font-size: 3rem;
+  width: 10rem;
+}
+.planner .totalResult div h1 {
+  font-size: 3rem;
+}
+.planner .plannerMain .formSection {
+  margin-top: 1rem;
+}
+.planner .plannerMain .formSection .formContainer {
+  animation: fadeIn 0.5s ease-out forwards;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin: 0 2rem;
+  padding: 1.5rem;
+}
+.planner .plannerMain .formSection .formContainer .formHeader {
+  margin-bottom: 1.5rem;
+}
+.planner .plannerMain .formSection .formContainer form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  position: relative;
+}
+.planner .plannerMain .formSection .formContainer form input,
+.planner .plannerMain .formSection .formContainer form select {
+  padding: 0.5rem 0.8rem;
+  background-color: var(--background-color-shade);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--primary-color);
+}
+.planner .plannerMain .formSection .formContainer form select {
+  opacity: 0.8;
+  color: var(--p-color-onDark);
+}
+.planner .plannerMain .formSection .formContainer form .date-picker {
+  padding: 0.8rem;
+  background-color: var(--background-color-shade);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--primary-color);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.planner .plannerMain .secondaryContainer {
+  display: flex;
+  margin: 1rem 2rem;
+  gap: 1rem;
+}
+.planner .plannerMain .secondaryContainer .goalsList {
+  width: 60%;
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  max-height: 30rem;
+  overflow: hidden;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goalsListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 0.5rem;
+  max-height: calc(100% - 3rem);
+  overflow-y: auto;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s ease;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card:hover {
+  transform: translateY(-2px);
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card.highlighted-card {
+  background: linear-gradient(90deg, rgba(var(--forth-color-rgb), 0.1), rgba(var(--forth-color-rgb), 0.2));
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .progress-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .progress-wrapper .MuiCircularProgress-root {
+  color: var(--secondary-color);
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .progress-wrapper .progress-content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .progress-wrapper .progress-content .check-icon {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .goal-info {
+  flex: 1;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .goal-info h4 {
+  margin-bottom: 0.4rem;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .goal-info .amount {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 0.2rem;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .goal-info .deadline {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .delete-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: white;
+}
+.planner .plannerMain .secondaryContainer .goalsList .goals-grid .goal-card .done-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 2.5rem;
+  color: white;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer {
+  width: 40%;
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid {
+  animation: slideFromRight 0.5s ease-out forwards;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid .stat-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid .stat-card .stat-info-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid .stat-card .stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid .stat-card .stat-icon.goals {
+  background: rgba(var(--background-color), 0.2);
+  color: var(--forth-color);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid .stat-card .stat-info p {
+  font-size: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid .stat-card .stat-info h3 {
+  font-size: 1.1rem;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid .stat-card .addGoalBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: var(--background-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  border: 1px solid var(--primary-color);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid .stat-card .addGoalBtn:hover {
+  background: var(--background-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .statsGrid .stat-card .addGoalBtn svg {
+  font-size: 1rem;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarHeader {
+  animation: slideFromRight 0.5s ease-out 0.1s forwards;
+  opacity: 0;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarHeader .calendarHeaderTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: var(--background-color-shade);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarHeader .calendarHeaderTop .calendar-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--background-color);
+  padding: 0.4rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarHeader .calendarHeaderTop .calendar-switcher svg {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-left: 0.2rem;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarHeader .calendarHeaderTop .calendar-switcher .switcher-options {
+  display: flex;
+  background: var(--background-color-shade);
+  padding: 0.2rem;
+  border-radius: var(--border-radius);
+  gap: 0.2rem;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarHeader .calendarHeaderTop .calendar-switcher .switcher-options button {
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: calc(var(--border-radius) - 2px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarHeader .calendarHeaderTop .calendar-switcher .switcher-options button:hover:not(.active) {
+  background: rgba(var(--secondary-color-rgb), 0.1);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarHeader .calendarHeaderTop .calendar-switcher .switcher-options button.active {
+  background: var(--secondary-color);
+  color: var(--background-color);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody {
+  animation: slideFromRight 0.5s ease-out 0.2s forwards;
+  opacity: 0;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar {
+  width: 100%;
+  background: var(--background-color-light);
+  border: none;
+  border-radius: var(--border-radius);
+  font-family: "Roboto", sans-serif;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar button {
+  color: var(--primary-color);
+  font-family: "Roboto", sans-serif;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar button:hover {
+  background: var(--primary-color-light);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar abbr {
+  text-decoration: none;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .react-calendar__month-view__days__day {
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .react-calendar__month-view__days__day:hover {
+  z-index: 1;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .react-calendar__month-view__days__day::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--secondary-color);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .react-calendar__month-view__days__day:hover::before {
+  opacity: 0.1;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .react-calendar__month-view__days__day.react-calendar__tile--active {
+  background: var(--primary-color) !important;
+  color: var(--background-color) !important;
+  font-weight: 600 !important;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .has-goal {
+  background-color: rgba(var(--forth-color-rgb), 0.2) !important;
+  position: relative;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .has-goal::after {
+  content: "🎯";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 8px;
+  animation: popIn 0.3s ease-out forwards;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .react-calendar__tile--now {
+  position: relative;
+  overflow: hidden;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .react-calendar__tile--now::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--border-radius);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .calendar-deadline {
+  background-color: rgba(var(--secondary-color-rgb), 0.3) !important;
+  color: var(--primary-color) !important;
+  position: relative;
+  font-weight: bold !important;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .calendar-deadline::after {
+  content: "📅";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 8px;
+  animation: popIn 0.3s ease-out forwards;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .react-calendar .calendar-deadline:hover {
+  background-color: rgba(var(--secondary-color-rgb), 0.5) !important;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .calendar-switcher {
+  background: var(--background-color-shade);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .calendar-switcher .MuiFormControlLabel-root {
+  margin: 0;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .calendar-switcher .MuiSwitch-root .MuiSwitch-track {
+  background-color: var(--primary-color-light) !important;
+  opacity: 0.3;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .calendar-switcher .MuiSwitch-root .MuiSwitch-thumb {
+  background-color: var(--primary-color);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .calendar-switcher .MuiSwitch-root.Mui-checked .MuiSwitch-track {
+  background-color: var(--secondary-color) !important;
+  opacity: 0.5;
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .calendar-switcher .MuiSwitch-root.Mui-checked .MuiSwitch-thumb {
+  background-color: var(--secondary-color);
+}
+.planner .plannerMain .secondaryContainer .calendarContainer .calendarBody .calendar-switcher label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.planner .plannerMain .incomeList {
+  margin: 1rem 2rem;
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+.planner .plannerMain .incomeList .incomeListHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.planner .plannerMain .incomeList .incomeListHeader div {
+  text-align: left;
+}
+.planner .plannerMain .incomeList .incomeListHeader .searchInput {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  outline: none;
+  background-color: var(--background-color-shade);
+  color: var(--text-color);
+}
+.planner .plannerMain .incomeList .incomeListHeader .searchInput:focus {
+  border-color: var(--primary-color);
+}
+.planner .plannerMain .incomeList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.planner .plannerMain .incomeList table th {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--background-color-shade);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.planner .plannerMain .incomeList table th:hover {
+  color: var(--primary-color-dark);
+}
+.planner .plannerMain .incomeList table td {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+  font-family: "Roboto", sans-serif;
+}
+.planner .plannerMain .incomeList table td:first-child {
+  font-family: monospace;
+  letter-spacing: -0.5px;
+}
+.planner .plannerMain .incomeList table td.date-cell {
+  position: relative;
+}
+.planner .plannerMain .incomeList table td.date-cell .date-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.planner .plannerMain .incomeList table td.date-cell .date-container .date {
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+}
+.planner .plannerMain .incomeList table td.date-cell .date-container .time-popup {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  top: -30px;
+  background: var(--background-color);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+.planner .plannerMain .incomeList table td.date-cell .date-container .time-popup::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: var(--border-color) transparent transparent;
+}
+.planner .plannerMain .incomeList table td.date-cell .date-container .time-popup span {
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
+}
+.planner .plannerMain .incomeList table td.date-cell .date-container:hover .time-popup {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.planner .plannerMain .incomeList table tr {
+  animation: slideFromBottom 0.5s ease-out forwards;
+  opacity: 0;
+}
+.planner .plannerMain .incomeList table tr:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.planner .plannerMain .incomeList table tr:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.planner .plannerMain .incomeList table tr:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.planner .plannerMain .incomeList table tr:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.planner .plannerMain .incomeList table tr:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.planner .plannerMain .incomeList .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.planner .plannerMain .incomeList .pagination button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: white;
+}
+.planner .plannerMain .incomeList .pagination button:hover {
+  background-color: var(--background-color-shade);
+}
+.planner .plannerMain .incomeList .pagination button.active {
+  background-color: var(--primary-color);
+  color: black;
+  border-color: var(--primary-color);
+}
+.planner .goalModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modalBackdropIn 0.2s ease-out;
+}
+.planner .goalModal .modalContent {
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  animation: modalPopIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+.planner .goalModal .modalContent h3 {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.planner .goalModal .modalContent form {
+  display: grid;
+  gap: 1.2rem;
+}
+.planner .goalModal .modalContent form input,
+.planner .goalModal .modalContent form .date-picker {
+  padding: 1rem;
+  background-color: var(--background-color-shade);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+.planner .goalModal .modalContent form input:focus,
+.planner .goalModal .modalContent form .date-picker:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--secondary-color-rgb), 0.1);
+}
+.planner .goalModal .modalContent form input::-moz-placeholder, .planner .goalModal .modalContent form .date-picker::-moz-placeholder {
+  color: rgba(var(--primary-color-rgb), 0.5);
+}
+.planner .goalModal .modalContent form input::placeholder,
+.planner .goalModal .modalContent form .date-picker::placeholder {
+  color: rgba(var(--primary-color-rgb), 0.5);
+}
+.planner .goalModal .modalContent form button {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--secondary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+.planner .goalModal .modalContent form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(var(--secondary-color-rgb), 0.3);
+}
+.planner .goalModal .modalContent form button:active {
+  transform: translateY(0);
+}
+.planner .goalModal .modalContent::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, rgba(var(--secondary-color-rgb), 0.3), rgba(var(--forth-color-rgb), 0.3));
+  border-radius: calc(var(--border-radius) + 2px);
+  z-index: -1;
+}
+@keyframes modalBackdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.newGoalModal .modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  outline: none;
+  border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  animation: modalEnter 0.3s ease-out;
+}
+.newGoalModal .modalWrapper .modalHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.newGoalModal .modalWrapper .modalHeader h2 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+.newGoalModal .modalWrapper .modalHeader p {
+  color: var(--p-color-onDark);
+  font-size: 0.9rem;
+}
+.newGoalModal .modalWrapper form .inputGroup {
+  margin-bottom: 1.5rem;
+}
+.newGoalModal .modalWrapper form .inputGroup label {
+  display: block;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+.newGoalModal .modalWrapper form .inputGroup input,
+.newGoalModal .modalWrapper form .inputGroup .MuiFormControl-root {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--background-color-shade);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--primary-color);
+  transition: all 0.2s ease;
+}
+.newGoalModal .modalWrapper form .inputGroup input:focus,
+.newGoalModal .modalWrapper form .inputGroup .MuiFormControl-root:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(var(--secondary-color-rgb), 0.1);
+}
+.newGoalModal .modalWrapper form .inputGroup input::-moz-placeholder, .newGoalModal .modalWrapper form .inputGroup .MuiFormControl-root::-moz-placeholder {
+  color: rgba(var(--primary-color-rgb), 0.4);
+}
+.newGoalModal .modalWrapper form .inputGroup input::placeholder,
+.newGoalModal .modalWrapper form .inputGroup .MuiFormControl-root::placeholder {
+  color: rgba(var(--primary-color-rgb), 0.4);
+}
+.newGoalModal .modalWrapper form .inputGroup .MuiInputBase-root {
+  height: auto;
+  background: var(--background-color-shade);
+}
+.newGoalModal .modalWrapper form .inputGroup .MuiInputBase-root input {
+  padding: 0.8rem;
+}
+.newGoalModal .modalWrapper form .modalActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.newGoalModal .modalWrapper form .modalActions button {
+  flex: 1;
+  padding: 0.8rem;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.newGoalModal .modalWrapper form .modalActions button.cancelBtn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+.newGoalModal .modalWrapper form .modalActions button.cancelBtn:hover {
+  background: var(--background-color-shade);
+}
+.newGoalModal .modalWrapper form .modalActions button.createBtn {
+  border: none;
+  color: var(--background-color);
+  border: 1px solid var(--primary-color);
+}
+.newGoalModal .modalWrapper form .modalActions button.createBtn:hover {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0px 12px rgba(var(--secondary-color-rgb), 0.5);
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+.MuiModal-root.goalModal .MuiBackdrop-root {
+  background: rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+.MuiModal-root.goalModal .modalContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 450px;
+  outline: none;
+  animation: modalPopIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.MuiModal-root.goalModal .modalContent::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, rgba(var(--secondary-color-rgb), 0.2), rgba(var(--forth-color-rgb), 0.2));
+  border-radius: calc(var(--border-radius) + 2px);
+  z-index: -1;
+}
+.MuiModal-root.goalModal .modalContent h3 {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.MuiModal-root.goalModal .modalContent form {
+  display: grid;
+  gap: 1.2rem;
+}
+.MuiModal-root.goalModal .modalContent form input,
+.MuiModal-root.goalModal .modalContent form .MuiFormControl-root {
+  width: 100%;
+}
+.MuiModal-root.goalModal .modalContent form input .MuiInputBase-root,
+.MuiModal-root.goalModal .modalContent form .MuiFormControl-root .MuiInputBase-root {
+  background-color: var(--background-color-shade);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  height: auto;
+  color: var(--primary-color);
+}
+.MuiModal-root.goalModal .modalContent form input .MuiInputBase-root:hover, .MuiModal-root.goalModal .modalContent form input .MuiInputBase-root:focus,
+.MuiModal-root.goalModal .modalContent form .MuiFormControl-root .MuiInputBase-root:hover,
+.MuiModal-root.goalModal .modalContent form .MuiFormControl-root .MuiInputBase-root:focus {
+  border-color: var(--secondary-color);
+}
+.MuiModal-root.goalModal .modalContent form input .MuiInputBase-root .MuiInputBase-input,
+.MuiModal-root.goalModal .modalContent form .MuiFormControl-root .MuiInputBase-root .MuiInputBase-input {
+  color: var(--primary-color);
+}
+.MuiModal-root.goalModal .modalContent form button {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--secondary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+.MuiModal-root.goalModal .modalContent form button:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(var(--secondary-color-rgb), 0.3);
+}
+.MuiModal-root.goalModal .modalContent form button:active {
+  transform: translateY(0);
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+.MuiInputBase-root {
+  color: var(--primary-color) !important;
+  border-radius: var(--border-radius) !important;
+  width: 100%;
+  height: 1rem !important;
+  font-family: "Roboto", sans-serif !important;
+}
+.MuiInputBase-root .MuiInputBase-input {
+  padding: 0rem 0.8rem !important;
+  background-color: rgb(var(--background-color-shade), 0.8) !important;
+  font-family: "Roboto", sans-serif !important;
+  border: none !important;
+}
+.MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border: none !important;
+}
+.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: var(--secondary-color) !important;
+}
+.MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: none !important;
+}
+.MuiInputBase-root svg {
+  filter: invert(1);
+}
+
+.MuiDateCalendar-root {
+  background-color: var(--background-color) !important;
+  border-radius: var(--border-radius) !important;
+  padding: 0.5rem !important;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiPickersDay-root {
+  color: var(--primary-color) !important;
+  font-family: "Roboto", sans-serif !important;
+}
+.MuiPickersDay-root:hover {
+  background-color: var(--secondary-color) !important;
+  color: var(--background-color) !important;
+}
+.MuiPickersDay-root.Mui-selected {
+  background-color: var(--secondary-color) !important;
+  color: var(--background-color) !important;
+  font-weight: 600 !important;
+}
+
+.MuiYearCalendar-root {
+  background-color: var(--primary-color-light) !important;
+  font-family: "Roboto", sans-serif !important;
+}
+.MuiYearCalendar-root .MuiPickersYear-yearButton {
+  color: var(--primary-color) !important;
+}
+.MuiYearCalendar-root .MuiPickersYear-yearButton.Mui-selected {
+  background-color: var(--secondary-color) !important;
+  color: var(--background-color) !important;
+}
+
+.MuiPickersCalendarHeader-root {
+  color: var(--primary-color) !important;
+  font-family: "Roboto", sans-serif !important;
+}
+.MuiPickersCalendarHeader-root .MuiPickersArrowSwitcher-button {
+  color: var(--primary-color) !important;
+}
+.MuiPickersCalendarHeader-root .MuiPickersArrowSwitcher-button:hover {
+  background-color: var(--secondary-color) !important;
+  color: var(--background-color) !important;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes popIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.addingPage h1 {
+  text-align: center;
+}
+.addingPage .formSection {
+  margin-top: 1rem;
+}
+.addingPage .formSection .formContainer {
+  animation: fadeIn 0.5s ease-out forwards;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin: 0 2rem;
+  padding: 1.5rem;
+}
+.addingPage .formSection .formContainer .formHeader {
+  margin-bottom: 1.5rem;
+}
+.addingPage .formSection .formContainer form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  position: relative;
+}
+.addingPage .formSection .formContainer form input,
+.addingPage .formSection .formContainer form select {
+  padding: 0.5rem 0.8rem;
+  background-color: var(--background-color-shade);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--primary-color);
+}
+.addingPage .formSection .formContainer form select {
+  opacity: 0.8;
+  color: var(--p-color-onDark);
+}
+.addingPage .formSection .formContainer form select {
+  cursor: pointer;
+  color: var(--primary-color) !important;
+  opacity: 0.5;
+}
+.addingPage .formSection .formContainer form .date-picker {
+  padding: 0.8rem;
+  background-color: var(--background-color-shade);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--primary-color);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.addingPage .listsContainer {
+  display: flex;
+  margin: 1rem 2rem;
+  gap: 1rem;
+}
+.addingPage .listsContainer .incomeList {
+  margin: 0rem;
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  width: 50%;
+}
+.addingPage .listsContainer .incomeList .incomeListHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.addingPage .listsContainer .incomeList .incomeListHeader div {
+  text-align: left;
+}
+.addingPage .listsContainer .incomeList .incomeListHeader .searchInput {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  outline: none;
+  background-color: var(--background-color-shade);
+  color: var(--text-color);
+}
+.addingPage .listsContainer .incomeList .incomeListHeader .searchInput:focus {
+  border-color: var(--primary-color);
+}
+.addingPage .listsContainer .incomeList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.addingPage .listsContainer .incomeList table th {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--background-color-shade);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.addingPage .listsContainer .incomeList table th:hover {
+  color: var(--primary-color-dark);
+}
+.addingPage .listsContainer .incomeList table td {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+  font-family: "Roboto", sans-serif;
+}
+.addingPage .listsContainer .incomeList table td:first-child {
+  font-family: monospace;
+  letter-spacing: -0.5px;
+}
+.addingPage .listsContainer .incomeList table td.date-cell {
+  position: relative;
+}
+.addingPage .listsContainer .incomeList table td.date-cell .date-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.addingPage .listsContainer .incomeList table td.date-cell .date-container .date {
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+}
+.addingPage .listsContainer .incomeList table td.date-cell .date-container .time-popup {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  top: -30px;
+  background: var(--background-color);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+.addingPage .listsContainer .incomeList table td.date-cell .date-container .time-popup::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: var(--border-color) transparent transparent;
+}
+.addingPage .listsContainer .incomeList table td.date-cell .date-container .time-popup span {
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
+}
+.addingPage .listsContainer .incomeList table td.date-cell .date-container:hover .time-popup {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.addingPage .listsContainer .incomeList table tr {
+  animation: slideFromBottom 0.5s ease-out forwards;
+  opacity: 0;
+}
+.addingPage .listsContainer .incomeList table tr:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.addingPage .listsContainer .incomeList table tr:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.addingPage .listsContainer .incomeList table tr:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.addingPage .listsContainer .incomeList table tr:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.addingPage .listsContainer .incomeList table tr:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.addingPage .listsContainer .incomeList .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.addingPage .listsContainer .incomeList .pagination button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: white;
+}
+.addingPage .listsContainer .incomeList .pagination button:hover {
+  background-color: var(--background-color-shade);
+}
+.addingPage .listsContainer .incomeList .pagination button.active {
+  background-color: var(--primary-color);
+  color: black;
+  border-color: var(--primary-color);
+}
+.addingPage .listsContainer .incomeList .delete-btn {
+  color: white;
+}
+
+.intro {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--background-color) 0%);
+}
+.intro .intro-content {
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+.intro .intro-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.intro .intro-content > p {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: var(--p-color-onDark);
+}
+.intro .intro-content .features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+.intro .intro-content .features .feature {
+  padding: 2rem;
+  background: var(--background-color-shade);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+.intro .intro-content .features .feature:hover {
+  transform: translateY(-5px);
+}
+.intro .intro-content .features .feature h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+.intro .intro-content .features .feature p {
+  color: var(--p-color-onDark);
+  font-size: 0.9rem;
+}
+.intro .intro-content button {
+  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
+  background: var(--secondary-color);
+  border: none;
+  color: var(--background-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.intro .intro-content button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(var(--secondary-color-rgb), 0.4);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color-light);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color-light) var(--background-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+div,
+span,
+a,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--h1-size);
+  font-weight: var(--h1-weight);
+}
+
+h2 {
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+}
+
+h3 {
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+}
+
+h4 {
+  font-size: var(--h4-size);
+  font-weight: var(--h4-weight);
+}
+
+p {
+  font-size: var(--p-size);
+  font-weight: var(--p-weight);
+  color: var(--p-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button {
+  background-color: var(--button-background-color);
+  color: var(--background-color);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  cursor: pointer;
+  transition: var(--button-transition);
+  border: 1px solid var(--button-background-color);
+}
+button:hover {
+  background-color: var(--button-hover-background-color);
+  color: var(--button-hover-color);
+  border: var(--button-hover-border);
+}
+
+li {
+  list-style: none;
+  color: var(--p-color-onDark);
+}
+
+:root {
+  --background-color: hsla(0, 0%, 3%, 0.933);
+  --background-color-shade: hsla(0, 0%, 3%, 0.351);
+  --primary-color: hsl(120, 100%, 98%);
+  --primary-color-light: hsla(0, 0%, 20%, 0.895);
+  --secondary-color: hsl(234, 74%, 66%);
+  --third-color: hsl(15, 87%, 34%);
+  --forth-color: hsl(5, 100%, 81%);
+  --p-color-onDark: hsla(0, 0%, 100%, 0.602);
+  --border-color: hsla(0, 0%, 80%, 0.133);
+  --border-radius: 0.5rem;
+  --secondary-color-rgb: 89, 104, 224;
+  --forth-color-rgb: 255, 179, 171;
+  --spacing-s: 0.1rem;
+  --spacing-m: 0.25rem;
+  --spacing-l: 1rem;
+  --spacing-xl: 1.5rem;
+  --h1-size: 2rem;
+  --h2-size: 1.5rem;
+  --h3-size: 1.25rem;
+  --h4-size: 1.125rem;
+  --h1-weight: 800;
+  --h2-weight: 700;
+  --h3-weight: 600;
+  --h4-weight: 500;
+  --p-color: var(--p-color-onDark);
+  --p-size: 0.8rem;
+  --p-weight: 400;
+  --button-color: var(--background-color);
+  --button-background-color: var(--primary-color);
+  --button-border-radius: var(--border-radius);
+  --button-padding: 0.5rem 1rem;
+  --button-font-size: 0.7rem;
+  --button-font-weight: 500;
+  --button-transition: all 0.3s ease-in-out;
+  --button-hover-color: #fff;
+  --button-hover-background-color: var(--background-color-shade);
+  --button-hover-border: 1px solid var(--primary-color);
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,158 @@
+@import "../components/layout";
+@import "../components/sidebar";
+@import "../pages/dashboard";
+@import "../pages/expensePage";
+@import "../pages/planner";
+@import "../pages/addingPage";
+@import "../pages/intro";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color-light);
+  border-radius: 5px;
+
+  &:hover {
+    background: var(--secondary-color);
+  }
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color-light) var(--background-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+div,
+span,
+a,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--h1-size);
+  font-weight: var(--h1-weight);
+}
+h2 {
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+}
+h3 {
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+}
+h4 {
+  font-size: var(--h4-size);
+  font-weight: var(--h4-weight);
+}
+p {
+  font-size: var(--p-size);
+  font-weight: var(--p-weight);
+  color: var(--p-color);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+button {
+  background-color: var(--button-background-color);
+  color: var(--background-color);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  cursor: pointer;
+  transition: var(--button-transition);
+  border: 1px solid var(--button-background-color);
+  &:hover {
+    background-color: var(--button-hover-background-color);
+    color: var(--button-hover-color);
+    border: var(--button-hover-border);
+  }
+}
+
+li {
+  list-style: none;
+  color: var(--p-color-onDark);
+}
+
+:root {
+  --background-color: hsla(0, 0%, 3%, 0.933);
+  --background-color-shade: hsla(0, 0%, 3%, 0.351);
+  --primary-color: hsl(120, 100%, 98%);
+  --primary-color-light: hsla(0, 0%, 20%, 0.895);
+  --secondary-color: hsl(234, 74%, 66%);
+  --third-color: hsl(15, 87%, 34%);
+  --forth-color: hsl(5, 100%, 81%);
+  --p-color-onDark: hsla(0, 0%, 100%, 0.602);
+  --border-color: hsla(0, 0%, 80%, 0.133);
+  --border-radius: 0.5rem;
+
+  // Add RGB values for calendar highlights
+  --secondary-color-rgb: 89, 104, 224; // RGB for hsl(234, 74%, 66%)
+  --forth-color-rgb: 255, 179, 171; // RGB for hsl(5, 100%, 81%)
+
+  //   Spacing
+  --spacing-s: 0.1rem;
+  --spacing-m: 0.25rem;
+  --spacing-l: 1rem;
+  --spacing-xl: 1.5rem;
+
+  //   Headers
+  --h1-size: 2rem;
+  --h2-size: 1.5rem;
+  --h3-size: 1.25rem;
+  --h4-size: 1.125rem;
+
+  --h1-weight: 800;
+  --h2-weight: 700;
+  --h3-weight: 600;
+  --h4-weight: 500;
+
+  //   Paragraph
+  --p-color: var(--p-color-onDark);
+  --p-size: 0.8rem;
+  --p-weight: 400;
+
+  //   Buttons
+  --button-color: var(--background-color);
+  --button-background-color: var(--primary-color);
+  --button-border-radius: var(--border-radius);
+  --button-padding: 0.5rem 1rem;
+  --button-font-size: 0.7rem;
+  --button-font-weight: 500;
+  --button-transition: all 0.3s ease-in-out;
+
+  --button-hover-color: #fff;
+  --button-hover-background-color: var(--background-color-shade);
+  --button-hover-border: 1px solid var(--primary-color);
+}
