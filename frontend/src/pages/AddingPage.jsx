@@ -1,4 +1,5 @@
 import ExpenseList from "../components/ExpenseList";
+import CalendarSwitcher from "../components/CalendarSwitcher";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { deleteExpense, deleteIncome } from "../api/api";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -13,8 +14,10 @@ import {
 } from "../api/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useCalendar } from "../context/CalendarContext";
 
 const AddingPage = () => {
+  const { isNepaliCalendar, setIsNepaliCalendar } = useCalendar();
   const [expenses, setExpenses] = useState([]);
   const [incomes, setIncomes] = useState([]);
 
@@ -128,7 +131,13 @@ const AddingPage = () => {
   return (
     <>
       <div className='addingPage'>
-        <h1>Add Transaction</h1>
+        <div className='addingPage-header'>
+          <h1>Add Transaction</h1>
+          <CalendarSwitcher
+            isNepali={isNepaliCalendar}
+            onToggle={() => setIsNepaliCalendar(!isNepaliCalendar)}
+          />
+        </div>
         <div className='formSection'>
           <div className='formContainer'>
             <div className='formHeader'>
@@ -190,11 +199,13 @@ const AddingPage = () => {
         <div className='listsContainer'>
           <ExpenseList
             data={incomes}
+            isNepaliCalendar={isNepaliCalendar}
             showDelete={true}
             onDelete={(id) => handleDeleteIncome(id)} // Pass the correct id
           />
           <ExpenseList
             data={expenses}
+            isNepaliCalendar={isNepaliCalendar}
             showDelete={true}
             onDelete={(id) => handleDeleteExpense(id)} // Pass the correct id
           />

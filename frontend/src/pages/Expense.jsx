@@ -1,6 +1,7 @@
 import LineChartContainer from "../components/LineChartContainer";
 import TotalResult from "../components/TotalResult";
 import ExpenseList from "../components/ExpenseList";
+import CalendarSwitcher from "../components/CalendarSwitcher";
 import { useEffect, useState } from "react";
 import { getAllExpenses } from "../api/api";
 import dayjs from "dayjs"; // Import dayjs
@@ -237,6 +238,10 @@ const Expense = () => {
       <div className='expensePage'>
         <div className='expense-header'>
           <h1>Expenses</h1>
+          <CalendarSwitcher
+            isNepali={isNepaliCalendar}
+            onToggle={() => setIsNepaliCalendar(!isNepaliCalendar)}
+          />
         </div>
         <LineChartContainer
           type='expense'

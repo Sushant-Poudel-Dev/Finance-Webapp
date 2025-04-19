@@ -97,49 +97,31 @@
     .calendar-switcher {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      background: var(--background-color-shade);
+      gap: 0.5rem;
+      background: var(--background-color);
       padding: 0.4rem;
       border-radius: var(--border-radius);
       border: 1px solid var(--border-color);
 
-      svg {
-        color: var(--secondary-color);
-        font-size: 1.2rem;
-        margin-left: 0.2rem;
-      }
-
-      .switcher-options {
-        display: flex;
-        background: var(--background-color);
-        padding: 0.2rem;
+      button {
+        background: none;
+        border: none;
+        color: var(--primary-color);
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+        font-weight: 500;
         border-radius: var(--border-radius);
-        gap: 0.2rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
 
-        button {
-          border: none;
-          background: none;
-          color: var(--primary-color);
-          padding: 0.3rem 0.8rem;
-          font-size: 0.75rem;
-          font-weight: 600;
-          border-radius: calc(var(--border-radius) - 2px);
-          cursor: pointer;
-          transition: all 0.2s ease;
-
-          &:hover:not(.active) {
-            background: rgba(var(--secondary-color-rgb), 0.1);
-          }
-
-          &.active {
-            background: var(--secondary-color);
-            color: var(--background-color);
-          }
+        &:hover {
+          background: rgba(var(--primary-color-rgb), 0.1);
         }
-      }
 
-      &:hover {
-        border-color: var(--secondary-color);
+        &.active {
+          background: var(--primary-color);
+          color: var(--background-color);
+        }
       }
     }
   }

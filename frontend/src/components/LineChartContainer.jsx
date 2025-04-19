@@ -143,6 +143,12 @@ const LineChartContainer = ({
 
       chart.update();
     }
+
+    // Ensure the chart is fully zoomed out by default
+    if (chartRef.current) {
+      chartRef.current.resetZoom();
+      setChartRange({ min: 0, max: labels.length });
+    }
   }, [chartData]);
 
   const lineOptions = {
@@ -228,8 +234,8 @@ const LineChartContainer = ({
         grid: {
           color: "rgba(255, 255, 255, 0.2)",
         },
-        min: chartRange.min,
-        max: chartRange.max,
+        min: 0, // Start from the first data point
+        max: labels.length, // Extend to the last data point
       },
       y: {
         beginAtZero: true,

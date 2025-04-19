@@ -1,16 +1,19 @@
 import LineChartContainer from "../components/LineChartContainer";
 import TotalResult from "../components/TotalResult";
 import ExpenseList from "../components/ExpenseList";
+import CalendarSwitcher from "../components/CalendarSwitcher";
 import { useEffect, useState } from "react";
 import { getAllIncomes } from "../api/api";
 import dayjs from "dayjs"; // Import dayjs
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter"; // Import plugins
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
+import { useCalendar } from "../context/CalendarContext";
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
 
 const Income = () => {
+  const { isNepaliCalendar, setIsNepaliCalendar } = useCalendar();
   const [incomes, setIncomes] = useState([]);
 
   useEffect(() => {
@@ -116,7 +119,13 @@ const Income = () => {
   return (
     <>
       <div className='expensePage'>
-        <h1>Income</h1>
+        <div className='expense-header'>
+          <h1>Income</h1>
+          <CalendarSwitcher
+            isNepali={isNepaliCalendar}
+            onToggle={() => setIsNepaliCalendar(!isNepaliCalendar)}
+          />
+        </div>
         <LineChartContainer
           type='income'
           chartData={getDailyData()}
@@ -125,7 +134,12 @@ const Income = () => {
           data={[todayIncome, thisWeekIncome, thisMonthIncome]} // Pass the calculated totals
           type='income'
         />
-        <ExpenseList data={incomes} />
+        <ExpenseList
+          data={incomes}
+          isNepaliCalendar={isNepaliCalendar}
+          showDelete={false}
+          showControls={true}
+        />
       </div>
     </>
   );

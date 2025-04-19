@@ -1,9 +1,6 @@
-# app/database.py
-
 from pymongo import MongoClient
 from app.config import settings
 
-# MongoDB connection
 client = MongoClient(settings.MONGO_URI)
 db = client[settings.DATABASE_NAME]
 

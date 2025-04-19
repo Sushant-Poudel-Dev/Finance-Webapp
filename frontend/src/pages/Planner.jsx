@@ -357,7 +357,13 @@ const Planner = () => {
   return (
     <>
       <div className='planner'>
-        <h1>Planner</h1>
+        <div className='planner-header'>
+          <h1>Planner</h1>
+          <CalendarSwitcher
+            isNepali={isNepaliCalendar}
+            onToggle={() => setIsNepaliCalendar(!isNepaliCalendar)}
+          />
+        </div>
         <TotalResult
           data={goalStats}
           type='savings'
@@ -608,10 +614,10 @@ const Planner = () => {
                     <h3>Calendar</h3>
                     <p>Set reminders</p>
                   </div>
-                  <CalendarSwitcher
+                  {/* <CalendarSwitcher
                     isNepali={isNepaliCalendar}
                     onToggle={() => setIsNepaliCalendar(!isNepaliCalendar)}
-                  />
+                  /> */}
                 </div>
               </div>
               <div className='calendarBody'>

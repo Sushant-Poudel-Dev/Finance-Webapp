@@ -178,44 +178,29 @@
 .dashboard .dashboard-header .calendar-switcher {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  background: var(--background-color-shade);
+  gap: 0.5rem;
+  background: var(--background-color);
   padding: 0.4rem;
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
 }
-.dashboard .dashboard-header .calendar-switcher svg {
-  color: var(--secondary-color);
-  font-size: 1.2rem;
-  margin-left: 0.2rem;
-}
-.dashboard .dashboard-header .calendar-switcher .switcher-options {
-  display: flex;
-  background: var(--background-color);
-  padding: 0.2rem;
-  border-radius: var(--border-radius);
-  gap: 0.2rem;
-}
-.dashboard .dashboard-header .calendar-switcher .switcher-options button {
-  border: none;
+.dashboard .dashboard-header .calendar-switcher button {
   background: none;
+  border: none;
   color: var(--primary-color);
   padding: 0.3rem 0.8rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: calc(var(--border-radius) - 2px);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
   cursor: pointer;
   transition: all 0.2s ease;
 }
-.dashboard .dashboard-header .calendar-switcher .switcher-options button:hover:not(.active) {
-  background: rgba(var(--secondary-color-rgb), 0.1);
+.dashboard .dashboard-header .calendar-switcher button:hover {
+  background: rgba(var(--primary-color-rgb), 0.1);
 }
-.dashboard .dashboard-header .calendar-switcher .switcher-options button.active {
-  background: var(--secondary-color);
+.dashboard .dashboard-header .calendar-switcher button.active {
+  background: var(--primary-color);
   color: var(--background-color);
-}
-.dashboard .dashboard-header .calendar-switcher:hover {
-  border-color: var(--secondary-color);
 }
 .dashboard .dashboardMain .totalResult {
   margin-top: 1rem;
@@ -425,6 +410,40 @@
 .expensePage h1 {
   text-align: center;
 }
+.expensePage .expense-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
+}
+.expensePage .expense-header .calendar-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--background-color);
+  padding: 0.4rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+.expensePage .expense-header .calendar-switcher button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.expensePage .expense-header .calendar-switcher button:hover {
+  background: rgba(var(--primary-color-rgb), 0.1);
+}
+.expensePage .expense-header .calendar-switcher button.active {
+  background: var(--primary-color);
+  color: var(--background-color);
+}
 .expensePage .lineChartContainer {
   margin: 1rem 2rem;
   padding: 1rem;
@@ -613,6 +632,33 @@
   align-items: center;
   margin-bottom: 1rem;
   padding: 0 2rem;
+}
+.planner .planner-header .calendar-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--background-color);
+  padding: 0.4rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+.planner .planner-header .calendar-switcher button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.planner .planner-header .calendar-switcher button:hover {
+  background: rgba(var(--primary-color-rgb), 0.1);
+}
+.planner .planner-header .calendar-switcher button.active {
+  background: var(--primary-color);
+  color: var(--background-color);
 }
 .planner h1 {
   text-align: center;
@@ -1580,6 +1626,40 @@
 }
 .addingPage h1 {
   text-align: center;
+}
+.addingPage .addingPage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
+}
+.addingPage .addingPage-header .calendar-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--background-color);
+  padding: 0.4rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+.addingPage .addingPage-header .calendar-switcher button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.addingPage .addingPage-header .calendar-switcher button:hover {
+  background: rgba(var(--primary-color-rgb), 0.1);
+}
+.addingPage .addingPage-header .calendar-switcher button.active {
+  background: var(--primary-color);
+  color: var(--background-color);
 }
 .addingPage .formSection {
   margin-top: 1rem;
