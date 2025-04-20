@@ -1,22 +1,15 @@
-from app.models.income import Income, IncomeInDB
+from app.models.income import Income, IncomeInDB, IncomeCreate
 from app.database import get_db
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from bson import ObjectId
 from datetime import datetime
 from pydantic import BaseModel
-from fastapi import HTTPException
 
 router = APIRouter()
 
-class IncomeCreate(BaseModel):
-    name: str
-    amount: int
-    date: str  # Now expecting YYYY-MM-DD HH:mm format
-    
 @router.post("/", response_model=IncomeInDB)
 async def create_income(income: IncomeCreate):
     try:
-        print(f"Received data: {income}")
         parsed_date = datetime.strptime(income.date, "%Y-%m-%d %H:%M")
         current_time = datetime.utcnow()
         
@@ -30,7 +23,6 @@ async def create_income(income: IncomeCreate):
         result = db.incomes.insert_one(income_dict)
         income_dict["id"] = str(result.inserted_id)
         income_dict["date"] = parsed_date.strftime("%Y-%m-%d %H:%M")  # Format without seconds
-        
         return IncomeInDB(**income_dict)
 
     except ValueError as ve:

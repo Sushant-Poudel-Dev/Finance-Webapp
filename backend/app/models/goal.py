@@ -1,6 +1,10 @@
 from pydantic import BaseModel
 from datetime import datetime
-
+class GoalCreate(BaseModel):
+    name: str
+    amount: int
+    date: str  # Expecting a string in the format YYYY-MM-DD
+    
 class Goal(BaseModel):
     id: int
     name: str

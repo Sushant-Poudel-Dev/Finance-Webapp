@@ -1,26 +1,16 @@
-from app.models.expense import Expense, ExpenseInDB
+from app.models.expense import Expense, ExpenseInDB, ExpenseCreate
 from app.database import get_db
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from bson import ObjectId
 from datetime import datetime
-from pydantic import BaseModel
-from fastapi import HTTPException
 
 router = APIRouter()
 
-class ExpenseCreate(BaseModel):
-    name: str
-    amount: int
-    date: str  # Now expecting YYYY-MM-DD HH:mm format
-    
 @router.post("/", response_model=ExpenseInDB)
 async def create_expense(expense: ExpenseCreate):
     try:
-        print(f"Received data: {expense}")
-        # Parse full datetime
         parsed_date = datetime.strptime(expense.date, "%Y-%m-%d %H:%M")
         current_time = datetime.utcnow()
-        
         db = get_db()
         expense_dict = {
             "name": expense.name,
@@ -31,7 +21,6 @@ async def create_expense(expense: ExpenseCreate):
         result = db.expenses.insert_one(expense_dict)
         expense_dict["id"] = str(result.inserted_id)
         expense_dict["date"] = parsed_date.strftime("%Y-%m-%d %H:%M")  # Format without seconds
-        
         return ExpenseInDB(**expense_dict)
 
     except ValueError as ve:

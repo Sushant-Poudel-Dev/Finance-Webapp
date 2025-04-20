@@ -1,6 +1,11 @@
 from pydantic import BaseModel
 from datetime import datetime
 
+class ExpenseCreate(BaseModel):
+    name: str
+    amount: int
+    date: str  # Now expecting YYYY-MM-DD HH:mm format
+
 class Expense(BaseModel):
     id: int
     name: str
