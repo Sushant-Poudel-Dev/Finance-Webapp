@@ -58,6 +58,44 @@ const ExpenseList = ({
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const getPageNumbers = () => {
+    const pageNumbers = [];
+    const maxPagesToShow = 5; // Max number of page buttons to show
+    const halfMaxPages = Math.floor(maxPagesToShow / 2);
+
+    if (totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      pageNumbers.push(1); // Always show the first page
+
+      let startPage = Math.max(2, currentPage - halfMaxPages + 1);
+      let endPage = Math.min(totalPages - 1, currentPage + halfMaxPages - 1);
+
+      if (currentPage <= halfMaxPages) {
+        endPage = maxPagesToShow - 2;
+      } else if (currentPage > totalPages - halfMaxPages) {
+        startPage = totalPages - maxPagesToShow + 3;
+      }
+
+      if (startPage > 2) {
+        pageNumbers.push("...");
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(i);
+      }
+
+      if (endPage < totalPages - 1) {
+        pageNumbers.push("...");
+      }
+
+      pageNumbers.push(totalPages); // Always show the last page
+    }
+    return pageNumbers;
+  };
+
   const formatData = (item) => {
     const [date, time] = item.date.split(" ");
     let formattedTime = "00:00";
@@ -151,13 +189,14 @@ const ExpenseList = ({
       </table>
       {showControls && (
         <div className='pagination'>
-          {Array.from({ length: totalPages }, (_, i) => (
+          {getPageNumbers().map((number, index) => (
             <button
-              key={i + 1}
-              onClick={() => paginate(i + 1)}
-              className={currentPage === i + 1 ? "active" : ""}
+              key={index}
+              onClick={() => typeof number === "number" && paginate(number)}
+              className={currentPage === number ? "active" : ""}
+              disabled={typeof number !== "number"}
             >
-              {i + 1}
+              {number}
             </button>
           ))}
         </div>
